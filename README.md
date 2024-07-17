@@ -1,8 +1,8 @@
-# React + Vite
+# Welcome to Mixer !
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Testing Testing 123
+1. Testing Testing 1
+1. Testing Testing 2
+1. Testing Testing 3
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Backend API](https://github.com/overtonjust/mixer-backend)
