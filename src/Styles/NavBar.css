@@ -1,0 +1,82 @@
+nav{
+    width: 260px;
+    background: var(--nav-bg);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+    padding: 10px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    .nav-main{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        h1{
+            font-weight: lighter;
+            img{
+                height: 30px;
+                position: relative;
+                top: 7px;
+                margin-right: 2px;
+            }
+        }
+        .new-song-button{
+            background: var(--bold-red);
+            box-sizing: border-box;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px 0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: center;
+        }
+        .genres-container{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .genre{
+                cursor: pointer;
+                font-size: 14px;
+                i{
+                    color: var(--bold-red);
+                    width: 30px;
+                    margin-right: 5px;
+                    font-size: 22px;
+                    text-align: left;
+                    position: relative;
+                }
+            }
+        }
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        p{
+            cursor: default;
+            color: var(--grey-text);
+            font-size: 14px;
+            line-height: 12px;
+            span{
+                font-size: 11px;
+                color: var(--light-red);
+                position: relative;
+                top: 5px;
+            }
+        }
+        a{
+            color: var(--grey-text);
+            i{
+                margin-left: 5px;
+                transform: rotate(45deg);
+                color: inherit;
+            }
+        }
+    }
+}
