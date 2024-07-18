@@ -1,8 +1,11 @@
 import "../Styles/Form.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+const API = import.meta.env.VITE_API;
 
 export default function Form({song}){
+    const navigate = useNavigate();
     const [newSong, setNewSong] = useState(song);
     const genres = ["Alternative", "Country", "Hip-Hop/Rap", "Latin", "Pop/K-Pop", "Rock/Metal"];
 
@@ -20,8 +23,24 @@ export default function Form({song}){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(newSong);
+        updateSong();
     };
+
+    const updateSong = () => {
+        fetch(`${API}/songs/${song.id}`, {
+          method: "PUT",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newSong)
+        })
+        .then(() => window.location.reload())
+        .catch((error) => console.error("bad edit form", error));
+    };
+
+    const handleDelete = () => {
+        fetch(`${API}/songs/${song.id}`, { method: "DELETE" })
+        .then(() => navigate("/songs"))
+        .catch((error) => console.error(error));
+    }
 
     return(
         <div className="form-background">
@@ -44,22 +63,22 @@ export default function Form({song}){
 
                 <div className="input-field">
                     <label htmlFor="name">name</label>
-                    <input onChange={handleTextChange} id="name" type="text" value={newSong.name} />
+                    <input required onChange={handleTextChange} id="name" type="text" value={newSong.name} />
                 </div>
 
                 <div className="input-field">
                     <label htmlFor="album">album</label>
-                    <input onChange={handleTextChange} id="album" type="text" value={newSong.album} />
+                    <input required onChange={handleTextChange} id="album" type="text" value={newSong.album} />
                 </div>
 
                 <div className="input-field">
                     <label htmlFor="artist">artist</label>
-                    <input onChange={handleTextChange} id="artist" type="text" value={newSong.artist} />
+                    <input required onChange={handleTextChange} id="artist" type="text" value={newSong.artist} />
                 </div>
 
                 <div className="input-field">
                     <label htmlFor="audio_url">video</label>
-                    <input onChange={handleTextChange} id="audio_url" type="url" value={newSong.audio_url} />
+                    <input required onChange={handleTextChange} id="audio_url" type="url" value={newSong.audio_url} />
                 </div>
 
                 <div className="input-field">
@@ -84,7 +103,7 @@ export default function Form({song}){
                 </div>
 
                 <div className="buttons">
-                    {song.id ? <div className="delete-button">Delete</div> : <div className="delete-button"></div>}
+                    {song.id ? <div onClick={handleDelete} className="delete-button">Delete</div> : <div className="delete-button"></div>}
                     <span>
                         <Link onClick={() => setShowForm(false)} >Cancel</Link>
                         <button>OK</button>
