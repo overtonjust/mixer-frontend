@@ -163,6 +163,10 @@
     color: var(--grey-text);
 }
 
+.mobile-dashboard-table-time {
+    color: var(--grey-text);
+}
+
 .mobile-song-image {
     height: 50px;
     width: 50px;

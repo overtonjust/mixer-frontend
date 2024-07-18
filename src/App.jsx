@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/>
           <Route path="/songs" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/> 
-          <Route path="*" element={<FourOFour />} />
+          <Route path="*" element={<FourOFour />} />g
         </Routes>
       </div>
     )
