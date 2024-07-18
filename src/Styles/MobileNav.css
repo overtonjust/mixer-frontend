@@ -12,7 +12,10 @@
 .mobile-nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+    .logo{
+        font-size: 30px;
+    }
 }
 
 .mobile-nav-icon{

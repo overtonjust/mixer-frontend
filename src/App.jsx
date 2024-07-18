@@ -13,7 +13,7 @@ import FourOFour from "./Pages/FourOFour";
 import NavBar from "./Components/NavBar";
 
 // MOBILE COMPONENTS
-import MobileNav from './Mobile/Components/MobileNav';
+import MobileNav from './mobile/Components/MobileNav';
 
 function App() {
   const [genreOption, setGenreOption] = useState('All Songs');
@@ -29,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/>
           <Route path="/songs" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/> 
+          <Route path="/songs/:id" element={<Show />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
       </div>

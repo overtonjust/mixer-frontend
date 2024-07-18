@@ -2,7 +2,6 @@ import "../Styles/NavBar.css";
 import { Link } from "react-router-dom";
 import { TbPiano } from "react-icons/tb";
 import { FaMicrophoneAlt } from "react-icons/fa";
-import { GiMusicalKeyboard } from "react-icons/gi";
 import { TbGuitarPickFilled } from "react-icons/tb";
 import { PiMicrophoneStageFill } from "react-icons/pi";
 
