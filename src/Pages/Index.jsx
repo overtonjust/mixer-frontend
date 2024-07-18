@@ -53,30 +53,28 @@ export default function Index({genreOption}){
                 </button>
             </header>
             {filteredList.length > 0 ? 
-                <table className="dashboard-table">
-                    <thead >
-                        <tr className="dashboard-table-headers">
-                            <th className="dashboard-table-header">Name</th>
-                            <th className="dashboard-table-header">Artist</th>
-                            <th className="dashboard-table-header">Album</th>
-                            {genreOption === 'All Songs' && <th className="dashboard-table-header">Genre</th> }
-                            <th className="dashboard-table-header">Time</th>
-                        </tr>
-                    </thead>
-                    <tbody className='dashboard-list'>
+                <section className="dashboard-table">
+                    <header className="dashboard-table-headers">
+                        <p className="dashboard-table-header">Name</p>
+                        <p className="dashboard-table-header">Artist</p>
+                        <p className="dashboard-table-header">Album</p>
+                        {genreOption === 'All Songs' && <p className="dashboard-table-header">Genre</p> }
+                        <p className="dashboard-table-header">Time</p>
+                    </header>
+                    <article className='dashboard-list'>
                         {filteredList.map((song,index) => {
                             return (
-                                <tr className={index % 2  == 0 ? 'dashboard-table-row even-row': 'dashboard-table-row'} key={song.id}>
-                                    <td className="dashboard-table-name">{song.name}</td>
-                                    <td className="dashboard-table-data">{song.artist}</td>
-                                    <td className="dashboard-table-data">{song.album}</td>
-                                    {genreOption === 'All Songs' && <td className="dashboard-table-data">{song.genre}</td> }
-                                    <td className="dashboard-table-time">{convertSecondsToTimeStr(song.time_in_seconds)}</td>
-                                </tr>
+                                <div className={index % 2  == 0 ? 'dashboard-table-row even-row': 'dashboard-table-row'} key={song.id}>
+                                    <p className="dashboard-table-name">{song.name}</p>
+                                    <p className="dashboard-table-data">{song.artist}</p>
+                                    <p className="dashboard-table-data">{song.album}</p>
+                                    {genreOption === 'All Songs' && <p className="dashboard-table-data">{song.genre}</p> }
+                                    <p className="dashboard-table-time">{convertSecondsToTimeStr(song.time_in_seconds)}</p>
+                                </div>
                             )
                         }) }
-                    </tbody>
-                </table>
+                    </article>
+                </section>
                 : <div>No songs found that are {genreOption}</div> }
         </main>
     )
