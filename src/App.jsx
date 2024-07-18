@@ -26,7 +26,11 @@ function App() {
     return(
       <div className='Mobile'>
         <MobileNav/>
-        <Index setGenreOption={setGenreOption} genreOption={genreOption}/>
+        <Routes>
+          <Route path="/" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/>
+          <Route path="/songs" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/> 
+          <Route path="*" element={<FourOFour />} />
+        </Routes>
       </div>
     )
   } else {
