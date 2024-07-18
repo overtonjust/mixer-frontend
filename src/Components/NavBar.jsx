@@ -23,7 +23,7 @@ export default function NavBar({setGenreOption}){
                         Alternative
                     </div>
                     <div onClick={() => setGenreOption('Country')} className="genre">
-                        <i className="fa-solid fa-hat-cowboy"></i>
+                        <i className="fa-solid fa-star"></i>
                         Country
                     </div>
                     <div onClick={() => setGenreOption('Hip-Hop/Rap')} className="genre">
