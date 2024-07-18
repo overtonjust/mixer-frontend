@@ -2,7 +2,7 @@ import "../Styles/NavBar.css";
 import { Link } from "react-router-dom";
 import record_player from "../assets/record_player.svg";
 
-export default function NavBar(){
+export default function NavBar({setGenreOption}){
     return (
         <nav>
             <div className="nav-main">
@@ -14,31 +14,31 @@ export default function NavBar(){
                 </Link>
                 <div className="new-song-button">Add To Library</div>
                 <div className="genres-container">
-                    <div className="genre">
+                    <div onClick={() => setGenreOption('All Songs')} className="genre">
                         <i className="fa-solid fa-earth-americas"></i>
                         All
                     </div>
-                    <div className="genre">
+                    <div onClick={() => setGenreOption('Alternative')} className="genre">
                         <i className="fa-regular fa-square"></i>
                         Alternative
                     </div>
-                    <div className="genre">
+                    <div onClick={() => setGenreOption('Country')} className="genre">
                         <i className="fa-solid fa-star"></i>
                         Country
                     </div>
-                    <div className="genre">
+                    <div onClick={() => setGenreOption('Hip-Hop/Rap')} className="genre">
                         <i className="fa-solid fa-sack-dollar"></i>
-                        Hip-Hip/Rap
+                        Hip-Hop/Rap
                     </div>
-                    <div className="genre">
+                    <div onClick={() => setGenreOption('Latin')} className="genre">
                         <i className="fa-solid fa-pepper-hot"></i>
                         Latin
                     </div>
-                    <div className="genre">
+                    <div onClick={() => setGenreOption('Pop/K-Pop')} className="genre">
                         <i className="fa-regular fa-square"></i>
                         Pop/K-Pop
                     </div>
-                    <div className="genre">
+                    <div onClick={() => setGenreOption('Rock/Metal')} className="genre">
                         <i className="fa-solid fa-guitar"></i>
                         Rock/Metal
                     </div>

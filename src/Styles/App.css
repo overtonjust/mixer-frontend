@@ -5,10 +5,12 @@
     --light-red: #ff5a6d;
     --nav-bg: rgba(235, 235, 245, 0.03);
     --main-bg: rgb(31,31,31);
+    --button-grey: rgb(42, 42, 42);
 }
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: sans-serif;
     color: var(--white-text);
     font-weight: lighter;
@@ -17,6 +19,7 @@
         background: transparent;
     }
 }
+
 .App{
     background: var(--main-bg);
     display: flex;
