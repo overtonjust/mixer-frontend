@@ -3,8 +3,10 @@
     display: flex;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    min-width: 1260px;
+    min-height: 700px;
     background: rgba(0, 0, 0, 0.5);
     z-index: 99;
     form{
