@@ -12,7 +12,7 @@
         display: flex;
         gap: 30px;
         img {
-            width: 400px;
+            height: 425px;
             aspect-ratio: 1;
             object-fit: cover;
             border-radius: 10px;
@@ -89,5 +89,9 @@ hr{
     border-width: 1px;
 }
 iframe{
-    
+    border: none;
+    aspect-ratio: 16/9;
+    width: 100%;
+    border-radius: 10px;
+    margin: auto auto 5px;
 }

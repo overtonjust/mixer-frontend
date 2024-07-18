@@ -7,22 +7,21 @@ const API = import.meta.env.VITE_API;
 
 export default function Show(){
     const {id} = useParams();
+    const [videoID, setVideoID] = useState("qvmP6PbC1JQ");
     const [song, setSong] = useState({
-        id: 1,
-        name: 'Never Gonna Give You Up',
-        artist: 'Rick Astley',
-        album: 'Whenever You Need Somebody',
-        genre: 'Pop',
-        time_in_seconds: 212,
-        is_favorite: true,
-        img: 'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/de/eb/63/deeb63c1-7bc0-9153-cfa3-fd9e4929aacf/4050538826562.jpg/1200x1200bb.jpg',
-        audio_url: 'https://www.youtube.com/watch?v=Ike_ieSd7ws'
+        genre: "XD",
+        is_favorite: false,
+        image: 'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/de/eb/63/deeb63c1-7bc0-9153-cfa3-fd9e4929aacf/4050538826562.jpg/1200x1200bb.jpg'
     });
 
     useEffect(() => {
         fetch(`${API}/songs/${id}`)
         .then(response => response.json())
-        // .then(response => setSong(response))
+        .then(response => {
+            console.log(response);
+            setSong(response)
+            setVideoID(response.audio_url.split("?v=")[1])
+        })
         .catch(error => console.error(error))
     },[]);
 
@@ -31,7 +30,7 @@ export default function Show(){
             <h1>{song.name}</h1>
             <hr/>
             <div className="show-details">
-                <img src={song.img || default_album_art} alt="Album Art" />
+                <img src={song.image} alt="Album Art" />
                 <div className="more-details">
                     <div className="info">
                         <span>
@@ -49,6 +48,12 @@ export default function Show(){
                         </div>
                     </div>
                     <hr/>
+                    <iframe
+                        id="ytplayer" 
+                        type="text/html"
+                        allowFullScreen
+                        src={`https://www.youtube.com/embed/${videoID}`}
+                    ></iframe>
                 </div>
             </div>
         </div>
