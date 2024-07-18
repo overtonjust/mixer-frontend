@@ -108,3 +108,62 @@
 .fa-ellipsis {
     color: var(--light-red);
 }
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .dashboard-header-title {
+        margin: 20px auto;
+        text-align: center;
+    }
+}
+
+.mobile-dashboard {
+    padding: 8% 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-genre-list {
+    display: flex;
+    gap: 4%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.mobile-genre-img {
+    height: 100px;
+    width: 100px;
+}
+
+.mobile-genre-label {
+    color: var(--light-red);
+    text-align: center;
+}
+
+
+
+.mobile-dashboard-table-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4%;
+    padding: 2% 2% 2% 0;
+    cursor: pointer;
+}
+
+.mobile-song-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mobile-dashboard-table-data {
+    color: var(--grey-text);
+}
+
+.mobile-song-image {
+    height: 50px;
+    width: 50px;
+}
