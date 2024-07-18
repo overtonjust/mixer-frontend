@@ -1,6 +1,7 @@
 import "../Styles/Show.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import song_not_found from "../assets/never-gonna-give-you-up.gif";
 import default_album_art from "../assets/default_album_art.png";
 
 const API = import.meta.env.VITE_API;
@@ -9,16 +10,16 @@ export default function Show(){
     const {id} = useParams();
     const [videoID, setVideoID] = useState("qvmP6PbC1JQ");
     const [song, setSong] = useState({
-        genre: "XD",
-        is_favorite: false,
-        image: 'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/de/eb/63/deeb63c1-7bc0-9153-cfa3-fd9e4929aacf/4050538826562.jpg/1200x1200bb.jpg'
+        name: "Song Not Found...",
+        is_favorite: true,
+        image: song_not_found
     });
 
     useEffect(() => {
         fetch(`${API}/songs/${id}`)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
+            if (response.error) response = song;
             setSong(response)
             setVideoID(response.audio_url.split("?v=")[1])
         })
@@ -27,7 +28,7 @@ export default function Show(){
 
     return(
         <div className="Show">
-            <h1>{song.name}</h1>
+            <h1>{song.name || default_album_art}</h1>
             <hr/>
             <div className="show-details">
                 <img src={song.image} alt="Album Art" />
