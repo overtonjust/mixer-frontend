@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 20px;
     margin: 50px auto;
+    background: var(--main-bg);
     h1{
         font-size: 30px;
     }

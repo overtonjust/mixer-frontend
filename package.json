@@ -12,7 +12,11 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+<<<<<<< HEAD
     "react-responsive": "^10.0.0",
+=======
+    "react-icons": "^5.2.1",
+>>>>>>> 6e5cf86 (finalize icons and logos)
     "react-router-dom": "^6.25.1"
   },
   "devDependencies": {

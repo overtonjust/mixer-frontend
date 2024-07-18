@@ -1,6 +1,10 @@
 import "../Styles/NavBar.css";
 import { Link } from "react-router-dom";
-import record_player from "../assets/record_player.svg";
+import { TbPiano } from "react-icons/tb";
+import { FaMicrophoneAlt } from "react-icons/fa";
+import { GiMusicalKeyboard } from "react-icons/gi";
+import { TbGuitarPickFilled } from "react-icons/tb";
+import { PiMicrophoneStageFill } from "react-icons/pi";
 
 export default function NavBar({setGenreOption}){
     return (
@@ -8,7 +12,7 @@ export default function NavBar({setGenreOption}){
             <div className="nav-main">
                 <Link to="/">
                     <h1>
-                        <img src={record_player} alt="Pursuit Logo"/>
+                        <FaMicrophoneAlt className="logo" />
                         Mixer
                     </h1>
                 </Link>
@@ -19,15 +23,15 @@ export default function NavBar({setGenreOption}){
                         All
                     </div>
                     <div onClick={() => setGenreOption('Alternative')} className="genre">
-                        <i className="fa-regular fa-square"></i>
+                        <TbPiano className="i kb" />
                         Alternative
                     </div>
                     <div onClick={() => setGenreOption('Country')} className="genre">
-                        <i className="fa-solid fa-hat-cowboy"></i>
+                        <i className="fa-solid fa-hat-cowboy country"></i>
                         Country
                     </div>
                     <div onClick={() => setGenreOption('Hip-Hop/Rap')} className="genre">
-                        <i className="fa-solid fa-sack-dollar"></i>
+                        <i className="fa-solid fa-headphones"></i>
                         Hip-Hop/Rap
                     </div>
                     <div onClick={() => setGenreOption('Latin')} className="genre">
@@ -35,11 +39,11 @@ export default function NavBar({setGenreOption}){
                         Latin
                     </div>
                     <div onClick={() => setGenreOption('Pop/K-Pop')} className="genre">
-                        <i className="fa-regular fa-square"></i>
+                        <PiMicrophoneStageFill className="i" />
                         Pop/K-Pop
                     </div>
                     <div onClick={() => setGenreOption('Rock/Metal')} className="genre">
-                        <i className="fa-solid fa-guitar"></i>
+                        <TbGuitarPickFilled className="i"/>
                         Rock/Metal
                     </div>
                 </div>

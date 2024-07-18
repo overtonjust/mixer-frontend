@@ -17,11 +17,9 @@ nav{
         gap: 30px;
         h1{
             font-weight: lighter;
-            img{
-                height: 30px;
+            .logo{
                 position: relative;
-                top: 7px;
-                margin-right: 2px;
+                top: 2px;
             }
         }
         .new-song-button{
@@ -44,7 +42,9 @@ nav{
             .genre{
                 cursor: pointer;
                 font-size: 14px;
-                i{
+                i, .i{
+                    stroke: var(--bold-red);
+                    fill: var(--bold-red);
                     color: var(--bold-red);
                     width: 30px;
                     margin-right: 5px;
@@ -52,6 +52,12 @@ nav{
                     text-align: left;
                     position: relative;
                 }
+                .country{left: -3px}
+                .i{
+                    left: -5px;
+                    top: 5px;
+                }
+                .kb{fill: transparent}
             }
         }
     }
