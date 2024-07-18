@@ -23,7 +23,7 @@ export default function NavBar(){
                         Alternative
                     </div>
                     <div className="genre">
-                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-hat-cowboy"></i>
                         Country
                     </div>
                     <div className="genre">
