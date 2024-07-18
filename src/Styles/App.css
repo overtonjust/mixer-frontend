@@ -29,6 +29,9 @@ body {
     height: 100%;
     width: 100%;
 }
+html{
+    background: var(--main-bg);
+}
 main{
     height: 100%;
     width: 100%;
