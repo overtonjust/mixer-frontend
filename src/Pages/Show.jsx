@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import song_not_found from "../assets/never-gonna-give-you-up.gif";
 import default_album_art from "../assets/default_album_art.png";
+import Form from "../Components/Form";
 
 const API = import.meta.env.VITE_API;
 
 export default function Show(){
     const {id} = useParams();
+    const [showForm, setShowForm] = useState(false);
     const [videoID, setVideoID] = useState("qvmP6PbC1JQ");
     const [song, setSong] = useState({
         name: "Song Not Found...",
@@ -28,6 +30,7 @@ export default function Show(){
 
     return(
         <div className="Show">
+            {showForm ? <Form song={song}/>:null}
             <h1>{song.name || default_album_art}</h1>
             <hr/>
             <div className="show-details">
@@ -45,7 +48,7 @@ export default function Show(){
                                     <i className="fa-regular fa-heart"></i>
                                 }
                             </div>
-                            <div className="edit-song-button circle"><span>...</span></div>
+                            <div onClick={() => setShowForm(true)} className="edit-song-button circle"><span>...</span></div>
                         </div>
                     </div>
                     <hr/>
