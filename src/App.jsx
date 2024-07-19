@@ -13,7 +13,7 @@ import FourOFour from "./Pages/FourOFour";
 import NavBar from "./Components/NavBar";
 
 // MOBILE COMPONENTS
-import MobileNav from './mobile/Components/MobileNav';
+import MobileNav from './Mobile/Components/MobileNav';
 
 function App() {
   const [genreOption, setGenreOption] = useState('All Songs');

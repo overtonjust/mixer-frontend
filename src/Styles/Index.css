@@ -123,6 +123,8 @@
     padding: 8% 4%;
     display: flex;
     flex-direction: column;
+    max-width: 100vw; 
+    overflow-x: hidden;
 }
 
 .mobile-genre-list {
@@ -130,16 +132,25 @@
     gap: 4%;
     overflow-x: scroll;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
 }
 
 .mobile-genre-img {
     height: 100px;
     width: 100px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
 }
 
 .mobile-genre-label {
     color: var(--light-red);
     text-align: center;
+    cursor: pointer;
 }
 
 
