@@ -1,13 +1,19 @@
 import "../Styles/Form.css";
 import { useState } from "react";
+import { useMediaQuery } from 'react-responsive';
 import { Link, useNavigate } from "react-router-dom";
 
 const API = import.meta.env.VITE_API;
+
 
 export default function Form({song}){
     const navigate = useNavigate();
     const [newSong, setNewSong] = useState(song);
     const genres = ["Alternative", "Country", "Hip-Hop/Rap", "Latin", "Pop/K-Pop", "Rock/Metal"];
+
+    const mobile = useMediaQuery({
+        query: '(max-width: 768px)'
+    });
 
     const handleTextChange = (event) => {
         setNewSong({...newSong, [event.target.id]: event.target.value});
@@ -40,7 +46,8 @@ export default function Form({song}){
         fetch(`${API}/songs/${song.id}`, { method: "DELETE" })
         .then(() => navigate("/songs"))
         .catch((error) => console.error(error));
-    }
+    };
+
 
     return(
         <div className="form-background">
@@ -67,13 +74,13 @@ export default function Form({song}){
                 </div>
 
                 <div className="input-field">
-                    <label htmlFor="album">album</label>
-                    <input required onChange={handleTextChange} id="album" type="text" value={newSong.album} />
+                    <label htmlFor="artist">artist</label>
+                    <input required onChange={handleTextChange} id="artist" type="text" value={newSong.artist} />
                 </div>
 
                 <div className="input-field">
-                    <label htmlFor="artist">artist</label>
-                    <input required onChange={handleTextChange} id="artist" type="text" value={newSong.artist} />
+                    <label htmlFor="album">album</label>
+                    <input required onChange={handleTextChange} id="album" type="text" value={newSong.album} />
                 </div>
 
                 <div className="input-field">
@@ -103,7 +110,7 @@ export default function Form({song}){
                 </div>
 
                 <div className="buttons">
-                    {song.id ? <div onClick={handleDelete} className="delete-button">Delete</div> : <div className="delete-button"></div>}
+                    {song.id ? <div onClick={!mobile ? handleDelete:null} className="delete-button">{!mobile ? "Delete" : null}</div> : <div className="delete-button"></div>}
                     <span>
                         <Link onClick={() => setShowForm(false)} >Cancel</Link>
                         <button>OK</button>

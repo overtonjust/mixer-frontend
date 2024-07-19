@@ -1,14 +1,18 @@
 import "../Styles/Show.css";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import song_not_found from "../assets/never-gonna-give-you-up.gif";
 import default_album_art from "../assets/default_album_art.png";
 import Form from "../Components/Form";
+import { FaTrashAlt } from "react-icons/fa";
+import { useMediaQuery } from 'react-responsive';
+import { IoMenu } from "react-icons/io5";
 
 const API = import.meta.env.VITE_API;
 
 export default function Show(){
     const {id} = useParams();
+    const navigate = useNavigate();
     const [showForm, setShowForm] = useState(false);
     const [videoID, setVideoID] = useState("qvmP6PbC1JQ");
     const [song, setSong] = useState({
@@ -28,38 +32,79 @@ export default function Show(){
         .catch(error => console.error(error))
     },[]);
 
+    const handleDelete = () => {
+        fetch(`${API}/songs/${song.id}`, { method: "DELETE" })
+        .then(() => navigate("/songs"))
+        .catch((error) => console.error(error));
+    };
+
+    const mobile = useMediaQuery({
+        query: '(max-width: 768px)'
+    });
+
     return(
         <div className="Show">
-            {showForm ? <Form song={song}/>:null}
-            <h1>{song.name || default_album_art}</h1>
-            <hr/>
-            <div className="show-details">
-                <img src={song.image} alt="Album Art" />
-                <div className="more-details">
-                    <div className="info">
-                        <span>
-                            <h2>{song.artist}</h2><h3>{song.album}</h3><h4>{song.genre}</h4>
-                        </span>
-                        <div className="circles">
-                            <div className="circle">
-                                {song.is_favorite ? 
-                                    <i className="fa-solid fa-heart"></i>
-                                :
-                                    <i className="fa-regular fa-heart"></i>
-                                }
+            {!mobile ? <>
+                {showForm ? <Form song={song}/>:null}
+                <h1>{song.name || default_album_art}</h1>
+                <hr/>
+                <div className="show-details">
+                    <img src={song.image} alt="Album Art" />
+                    <div className="more-details">
+                        <div className="info">
+                            <span>
+                                <h2>{song.artist}</h2><h3>{song.album}</h3><h4>{song.genre}</h4>
+                            </span>
+                            <div className="circles">
+                                <div className="circle">
+                                    {song.is_favorite ? 
+                                        <i className="fa-solid fa-heart"></i>
+                                    :
+                                        <i className="fa-regular fa-heart"></i>
+                                    }
+                                </div>
+                                <div onClick={() => setShowForm(true)} className="edit-song-button circle"><span>...</span></div>
                             </div>
-                            <div onClick={() => setShowForm(true)} className="edit-song-button circle"><span>...</span></div>
                         </div>
+                        <hr/>
+                        <iframe
+                            id="ytplayer" 
+                            type="text/html"
+                            allowFullScreen
+                            src={`https://www.youtube.com/embed/${videoID}`}
+                        ></iframe>
                     </div>
-                    <hr/>
-                    <iframe
-                        id="ytplayer" 
-                        type="text/html"
-                        allowFullScreen
-                        src={`https://www.youtube.com/embed/${videoID}`}
-                    ></iframe>
+                </div>
+            </>
+            :
+            <>
+            <div className="mobile-show-container">
+                {showForm ? <Form song={song}/>:null}
+                <img src={song.image}/>
+                <iframe
+                            id="ytplayer" 
+                            type="text/html"
+                            allowFullScreen
+                            src={`https://www.youtube.com/embed/${videoID}`}
+                ></iframe>
+                <div className="mobile-show-details">
+                    <h1>{song.name}</h1>
+                    <h2>{song.artist}</h2>
+                    <div className="circle">
+                        {song.is_favorite ? 
+                            <i className="fa-solid fa-heart"></i>
+                        :
+                            <i className="fa-regular fa-heart"></i>
+                        }
+                    </div>
+                    <div className="buttons">
+                        <div onClick={handleDelete} className="mobile-delete"><FaTrashAlt /></div>
+                        <div onClick={song.id ? () => setShowForm(true) : null} className="mobile-edit"><IoMenu /></div>
+                    </div>
                 </div>
             </div>
+            </>
+            }
         </div>
     )
 }

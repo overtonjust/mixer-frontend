@@ -97,3 +97,66 @@ iframe{
     border-radius: 10px;
     margin: auto auto 5px;
 }
+
+@media (max-width: 768px) {
+    .Show{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        .mobile-show-container{
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+            position: relative;
+            aspect-ratio: 9/16;
+            background: rgba(0,0,0,0.2);
+            img{
+                height: 100%;
+                filter: blur(70px);
+                position: absolute;
+                transform: translateX(-50vw);
+                z-index: -1;
+            }
+            iframe{
+                aspect-ratio: 1;
+                margin: 20px 0;
+            }
+            .mobile-show-details{
+                h1{
+                    font-weight: bold;
+                    font-size: 22px;
+                }
+                h2{
+                    font-size: 22px;
+                    font-weight: normal;
+                    color: var(--grey-text);
+                }
+                .circle{
+                    display: block;
+                    text-align: center;
+                    font-size: 50px;
+                    margin: 80px;
+                }
+                .buttons{
+                    margin-top: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px;
+                    .mobile-delete svg{
+                        transform: scale(1.8);
+                    }
+                    .mobile-edit svg{
+                        transform: scale(2.7);
+                        position: relative;
+                        top: 0;
+                    }
+                    .mobile-home svg{
+                        transform: scale(2);
+                    }
+                }
+            }
+        }
+    }
+}
