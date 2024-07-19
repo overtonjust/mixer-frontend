@@ -91,6 +91,9 @@
                 width: 470px;
                 select{
                     color: var(--main-bg);
+                    option{
+                        color: black; 
+                    }
                 }
                 input{
                     width: 50px;

@@ -2,13 +2,23 @@ import "../Styles/Form.css";
 import { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 import { Link, useNavigate } from "react-router-dom";
+import default_album_art from '../assets/default_album_art.png';
 
 const API = import.meta.env.VITE_API;
 
 
 export default function Form({song}){
     const navigate = useNavigate();
-    const [newSong, setNewSong] = useState(song);
+    const [newSong, setNewSong] = useState(song||{
+        "name": "",
+        "artist": "",
+        "album": "",
+        "genre": "Alternative",
+        "time_in_seconds": 1,
+        "is_favorite": false,
+        "image": "",
+        "audio_url": ""
+    });
     const genres = ["Alternative", "Country", "Hip-Hop/Rap", "Latin", "Pop/K-Pop", "Rock/Metal"];
 
     const mobile = useMediaQuery({
@@ -29,11 +39,21 @@ export default function Form({song}){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        updateSong();
+        newSong.id ? updateSong() : addSong();
+    };
+
+    const addSong = () => {
+        fetch(`${API}/songs/`, {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newSong)
+        })
+        .then((response) => console.log(response))
+        .catch((error) => console.error("bad edit form", error));
     };
 
     const updateSong = () => {
-        fetch(`${API}/songs/${song.id}`, {
+        fetch(`${API}/songs/${newSong.id}`, {
           method: "PUT",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newSong)
@@ -48,12 +68,11 @@ export default function Form({song}){
         .catch((error) => console.error(error));
     };
 
-
     return(
         <div className="form-background">
             <form onSubmit={handleSubmit}>
                 <header>
-                    <img src={newSong.image} alt="Album Art" />
+                    <img src={newSong.image || default_album_art} alt="Album Art" />
                     <div className="old-details">
                         <h1>{newSong.name}</h1>
                         <h2>{newSong.artist}</h2>
@@ -110,7 +129,7 @@ export default function Form({song}){
                 </div>
 
                 <div className="buttons">
-                    {song.id ? <div onClick={!mobile ? handleDelete:null} className="delete-button">{!mobile ? "Delete" : null}</div> : <div className="delete-button"></div>}
+                    {newSong.id ? <div onClick={!mobile ? handleDelete:null} className="delete-button">{!mobile ? "Delete" : null}</div> : <div className="delete-button"></div>}
                     <span>
                         <Link onClick={() => setShowForm(false)} >Cancel</Link>
                         <button>OK</button>

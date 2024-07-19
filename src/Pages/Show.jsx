@@ -49,7 +49,7 @@ export default function Show(){
                 <h1>{song.name || default_album_art}</h1>
                 <hr/>
                 <div className="show-details">
-                    <img src={song.image} alt="Album Art" />
+                    <img src={song.image || default_album_art} alt="Album Art" />
                     <div className="more-details">
                         <div className="info">
                             <span>
@@ -80,7 +80,7 @@ export default function Show(){
             <>
             <div className="mobile-show-container">
                 {showForm ? <Form song={song}/>:null}
-                <img src={song.image}/>
+                <img src={song.image || default_album_art}/>
                 <iframe
                             id="ytplayer" 
                             type="text/html"
