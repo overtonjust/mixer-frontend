@@ -63,7 +63,7 @@ export default function Show(){
                                         <i className="fa-regular fa-heart"></i>
                                     }
                                 </div>
-                                <div onClick={() => setShowForm(true)} className="edit-song-button circle"><span>...</span></div>
+                                <div onClick={song.id ? () => setShowForm(true) : null} className="edit-song-button circle"><span>...</span></div>
                             </div>
                         </div>
                         <hr/>

@@ -30,7 +30,10 @@
             gap: 10px;
             img{
                 height: 100px;
-                border-radius: 10px;;
+                width: 100px;
+                object-fit: cover;
+                border-radius: 10px;
+
             }
             .old-details{
                 align-self: center;
@@ -147,9 +150,6 @@
                 padding: 20px;
                 border-radius: 0;
                 border-top: 1px solid rgba(255,255,255,0.1);
-            }
-            img{
-                display: none;
             }
             .input-field{
                 input, .select, .time{

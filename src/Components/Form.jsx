@@ -48,7 +48,10 @@ export default function Form({song}){
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newSong)
         })
-        .then((response) => console.log(response))
+        .then(() => {
+            navigate('/songs');
+            window.location.reload();
+        })
         .catch((error) => console.error("bad edit form", error));
     };
 
