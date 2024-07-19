@@ -132,18 +132,12 @@
     gap: 4%;
     overflow-x: scroll;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
     white-space: nowrap;
 }
 
 .mobile-genre-img {
     height: 100px;
     width: 100px;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     cursor: pointer;
 }
 
