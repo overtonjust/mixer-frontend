@@ -1,6 +1,7 @@
 // Dependencies
 import { useState, useEffect } from "react";
 import { convertSecondsToTimeStr, genreImages } from "../utils/utils";
+import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import "../Styles/Index.css";
 
@@ -72,16 +73,18 @@ export default function Index({genreOption, setGenreOption}){
                 <article className='mobile-dashboard-list'>
                     {filteredList.map((song,index) => {
                         return (
-                            <div className={index % 2  == 0 ? 'mobile-dashboard-table-row even-row': 'mobile-dashboard-table-row'} key={song.id}>
-                                <div className="mobile-song-info">
-                                    <img className="mobile-song-image" src={song.image} alt="" />
-                                    <span>
-                                        <p className="mobile-dashboard-table-name">{song.name}</p>
-                                        <p className="mobile-dashboard-table-data">{song.artist}</p>
-                                    </span>
+                            <Link to={`/songs/${song.id}`} key={song.id}>
+                                <div className={index % 2  == 0 ? 'mobile-dashboard-table-row even-row': 'mobile-dashboard-table-row'} >
+                                    <div className="mobile-song-info">
+                                        <img className="mobile-song-image" src={song.image} alt="" />
+                                        <span>
+                                            <p className="mobile-dashboard-table-name">{song.name}</p>
+                                            <p className="mobile-dashboard-table-data">{song.artist}</p>
+                                        </span>
+                                    </div>
+                                    <p className="mobile-dashboard-table-time">{convertSecondsToTimeStr(song.time_in_seconds)}</p>
                                 </div>
-                                <p className="mobile-dashboard-table-time">{convertSecondsToTimeStr(song.time_in_seconds)}</p>
-                            </div>
+                            </Link>
                         )
                     }) }
                 </article>
@@ -115,13 +118,15 @@ export default function Index({genreOption, setGenreOption}){
                         <article className='dashboard-list'>
                             {filteredList.map((song,index) => {
                                 return (
-                                    <div className={index % 2  == 0 ? 'dashboard-table-row even-row': 'dashboard-table-row'} key={song.id}>
-                                        <p className="dashboard-table-name">{song.name}</p>
-                                        <p className="dashboard-table-data">{song.artist}</p>
-                                        <p className="dashboard-table-data">{song.album}</p>
-                                        {genreOption === 'All Songs' && <p className="dashboard-table-data">{song.genre}</p> }
-                                        <p className="dashboard-table-time">{convertSecondsToTimeStr(song.time_in_seconds)}</p>
-                                    </div>
+                                    <Link to={`/songs/${song.id}`} key={song.id}>
+                                        <div className={index % 2  == 0 ? 'dashboard-table-row even-row': 'dashboard-table-row'} >
+                                            <p className="dashboard-table-name">{song.name}</p>
+                                            <p className="dashboard-table-data">{song.artist}</p>
+                                            <p className="dashboard-table-data">{song.album}</p>
+                                            {genreOption === 'All Songs' && <p className="dashboard-table-data">{song.genre}</p> }
+                                            <p className="dashboard-table-time">{convertSecondsToTimeStr(song.time_in_seconds)}</p>
+                                        </div>
+                                    </Link>
                                 )
                             }) }
                         </article>
