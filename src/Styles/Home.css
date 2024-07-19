@@ -1,0 +1,118 @@
+.continue-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+}
+.continue-popup{
+    cursor: default;
+    width: 800px;
+    height: 475px;
+    margin: auto;
+    background: rgb(29, 29, 31);
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    .logo, svg{
+        height: 30px;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+    img{
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        border-radius: 15px;
+    }
+    h1{
+        font-weight: bold;
+        color: white;
+        .inline-logo{
+            position: relative;
+            top: 4px;
+            left: 0;
+            transform: none;
+        }
+    }
+    h2{
+        margin: 0 150px;
+    }
+    p{
+        font-size: 16px;
+        width: 500px;
+        margin: 20px auto;
+        line-height: 20px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    a{
+        background: #fa233b;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 10px 40px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: normal;
+    }
+}
+
+@media (max-width: 768px) {
+    .continue-background{
+        z-index: 99;
+        height: 120%;
+    }
+    .continue-popup{
+        border-radius: 0;
+        padding: 0;
+        padding-top: 70px;
+        height: 100%;
+        width: 100%;
+        align-items: flex-start;
+        gap: 0;
+        img{
+            width: 100%;
+        }
+        h1{
+            transform: scale(0.6);
+            text-align: left;
+            .inline-logo{
+                position: relative;
+                top: 4px;
+                left: 0;
+                transform: none;
+            }
+        }
+        h2{
+            margin: 0 25px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 32px;
+            line-height: 32px;
+        }
+        a{
+            margin: 0 auto;
+            font-weight: bold;
+            width: 90%;
+            border-radius: 15px;
+            padding: 12px;
+            font-size: 20px;
+        }
+        p{
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+            padding: 20px;
+            margin: 0;
+            font-weight: normal;
+            line-height: 17px;
+        }
+    }
+}

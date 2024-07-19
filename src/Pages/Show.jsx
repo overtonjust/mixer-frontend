@@ -13,6 +13,7 @@ const API = import.meta.env.VITE_API;
 export default function Show(){
     const {id} = useParams();
     const navigate = useNavigate();
+    const [confirmDelete, setConfirmDelete] = useState(false);
     const [showForm, setShowForm] = useState(false);
     const [videoID, setVideoID] = useState("qvmP6PbC1JQ");
     const [song, setSong] = useState({
@@ -43,6 +44,7 @@ export default function Show(){
     });
 
     return(
+        <>
         <div className="Show">
             {!mobile ? <>
                 {showForm ? <Form song={song}/>:null}
@@ -98,7 +100,7 @@ export default function Show(){
                         }
                     </div>
                     <div className="buttons">
-                        <div onClick={handleDelete} className="mobile-delete"><FaTrashAlt /></div>
+                        <div onClick={() => setConfirmDelete(true)} className="mobile-delete"><FaTrashAlt /></div>
                         <div onClick={song.id ? () => setShowForm(true) : null} className="mobile-edit"><IoMenu /></div>
                     </div>
                 </div>
@@ -106,5 +108,20 @@ export default function Show(){
             </>
             }
         </div>
+        {confirmDelete ? 
+            <div className="greyed-out">
+                <div className="popup">
+                    <h2>
+                        Confirm Delete
+                        <p>Are you sure?<br/>This action cannot be undone</p>
+                    </h2>
+                    <div>
+                        <button onClick={() => handleDelete()}>Delete</button>
+                        <button onClick={() => setConfirmDelete(false)}>Cancel</button>
+                    </div>
+                </div>
+            </div>
+        :null}
+        </>
     )
 }

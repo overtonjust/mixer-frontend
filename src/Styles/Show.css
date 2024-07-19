@@ -98,6 +98,72 @@ iframe{
     margin: auto auto 5px;
 }
 
+.greyed-out{
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    min-width: 1260px;
+    min-height: 700px;
+    display: flex;
+    .popup{
+        padding-top: 20px;
+        background: var(--main-bg);
+        width: 300px;
+        height: 170px;
+        margin: 333px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        h2{
+            cursor: default;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: var(--white-text);
+            p{
+                color: var(--grey-text);
+                font-weight: lighter;
+                padding: 20px 25px;
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+        button{
+            width: 50%;
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: var(--bold-red);
+            font-weight: normal;
+            border-bottom-right-radius: 20px;
+            &:hover{
+                background: var(--bold-red);
+                color: var(--white-text);
+            }
+            &:first-of-type{
+                border-right: 1px solid rgba(255,255,255,0.1);
+                border-bottom-left-radius: 20px;
+                color: var(--grey-text);
+                font-weight: lighter;
+                border-bottom-right-radius: 0;
+                &:hover{
+                    background: var(--nav-bg);
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .Show{
         width: 100%;
@@ -122,6 +188,7 @@ iframe{
             iframe{
                 aspect-ratio: 1;
                 margin: 20px 0;
+                box-shadow: rgba(0,0,0,0.3) 0 10px 20px 0;
             }
             .mobile-show-details{
                 h1{
@@ -149,14 +216,16 @@ iframe{
                     }
                     .mobile-edit svg{
                         transform: scale(2.7);
-                        position: relative;
-                        top: 0;
-                    }
-                    .mobile-home svg{
-                        transform: scale(2);
                     }
                 }
             }
+        }
+    }
+    .greyed-out{
+        min-width: 100%;
+        height: 130%;
+        .popup{
+            border: none;
         }
     }
 }
