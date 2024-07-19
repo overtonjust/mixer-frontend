@@ -1,0 +1,188 @@
+.form-background{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-width: 1260px;
+    min-height: 700px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    form{
+        background: var(--main-bg);
+        width: 600px;
+        height: 650px;
+        margin: auto;
+        border-radius: 15px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        header{
+            width: 600px;
+            box-sizing: border-box;
+            border-radius: 15px 15px 0px 0px;
+            background: var(--nav-bg);
+            padding: 30px;
+            display: flex;
+            gap: 10px;
+            img{
+                height: 100px;
+                width: 100px;
+                object-fit: cover;
+                border-radius: 10px;
+
+            }
+            .old-details{
+                align-self: center;
+                h1{
+                    font-size: 24px;
+                }
+                h2{
+                    color: rgba(255, 255, 255, 0.5);
+                    font-size: 16px;
+                }
+            }
+            .circle{
+                height: 40px;
+                width: 40px;
+                display: flex;
+                background:rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                align-self: center;
+                margin-left: auto;
+                cursor: pointer;
+                i{
+                    margin: auto;
+                    color: var(--bold-red);
+                    font-size: 22px;
+                    position: relative;
+                    top: 1px;
+                }
+            }
+        }
+        .input-field{
+            display: flex;
+            gap: 5px;
+            label{
+                font-size: 16px;
+                color: var(--grey-text);
+                width: 75px;
+                text-align: right;
+                display: inline-block;
+                align-self: center;
+            }
+            input, .select{
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                font-size: 16px;
+                width: 470px;
+                padding: 1px;
+                border-radius: 2px;
+                &:focus{
+                    outline: none;
+                    border: 1px solid var(--light-red);
+                }
+                &::selection{
+                    background: #fa233c75;
+                }
+            }
+            .select, .time{
+                border: none;
+                width: 470px;
+                select{
+                    color: var(--main-bg);
+                    option{
+                        color: black; 
+                    }
+                }
+                input{
+                    width: 50px;
+                    text-align: right;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-between;
+            width: 520px;
+            margin: auto auto 30px;
+            .delete-button{
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.5);
+                cursor: default;
+            }
+            a{
+                font-size: 14px;
+                background: rgba(255, 255, 255, 0.2);
+                padding: 2px 20px;
+                border-radius: 5px;
+            }
+            button{
+                background: #fa233b;
+                padding: 2px 30px;
+                border-radius: 5px;
+                border: none;
+                font-size: 14px;
+                font-weight: normal;
+                cursor: pointer;
+            }
+            span{
+                display: flex;
+                gap: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form-background{
+        min-width: 100%;
+        form{
+            width: 100%;
+            height: 105%;
+            border-radius: 0;
+            header{
+                width: 100%;
+                padding: 20px;
+                border-radius: 0;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            .input-field{
+                input, .select, .time{
+                    width: 333px;
+                }
+                label{
+                    width: 60px;
+                }
+            }
+            .buttons{
+                align-self: flex-end;
+                margin-bottom: 80px;
+                width: 100%;
+                padding: 10px;
+                a{
+                    font-size: 18px;
+                    background: rgba(255, 255, 255, 0.2);
+                    padding: 2px 20px;
+                    border-radius: 5px;
+                }
+                button{
+                    background: #fa233b;
+                    padding: 2px 30px;
+                    border-radius: 5px;
+                    border: none;
+                    font-size: 18px;
+                    font-weight: normal;
+                    cursor: pointer;
+                }
+                span{
+                    gap: 20px;
+                }
+            }
+        }
+    }
+}

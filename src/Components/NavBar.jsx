@@ -1,4 +1,6 @@
 import "../Styles/NavBar.css";
+import { useState } from "react";
+import Form from "../Components/Form";
 import { Link } from "react-router-dom";
 import { TbPiano } from "react-icons/tb";
 import { FaMicrophoneAlt } from "react-icons/fa";
@@ -6,8 +8,10 @@ import { TbGuitarPickFilled } from "react-icons/tb";
 import { PiMicrophoneStageFill } from "react-icons/pi";
 
 export default function NavBar({setGenreOption}){
+    const [showForm, setShowForm] = useState(false);
     return (
         <nav>
+            {showForm ? <Form />:null}
             <div className="nav-main">
                 <Link to="/">
                     <h1>
@@ -15,7 +19,7 @@ export default function NavBar({setGenreOption}){
                         Mixer
                     </h1>
                 </Link>
-                <div className="new-song-button">Add To Library</div>
+                <div onClick={() => setShowForm(true)} className="new-song-button">Add To Library</div>
                 <div className="genres-container">
                     <div onClick={() => setGenreOption('All Songs')} className="genre">
                         <i className="fa-solid fa-earth-americas"></i>

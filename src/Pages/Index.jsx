@@ -16,7 +16,7 @@ export default function Index({genreOption, setGenreOption}){
     const API = import.meta.env.VITE_API;
 
     useEffect(()=> {
-        fetch(API)
+        fetch(`${API}/songs`)
             .then(res => res.json())
             .then(res => {
                 setSongList((prevState) => res)
