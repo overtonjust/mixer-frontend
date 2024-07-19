@@ -23,9 +23,14 @@
     width: 30px;
 }
 
+.mobile-nav-options{
+    display: flex;
+    gap: 15px;
+}
+
 .mobile-nav-button {
     background-color: var(--bold-red);
-    padding: 2%;
+    padding: .4em;
     outline: none;
     border: none;
     border-radius: 1em;

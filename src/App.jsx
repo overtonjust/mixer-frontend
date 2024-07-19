@@ -11,6 +11,7 @@ import FourOFour from "./Pages/FourOFour";
 
 // COMPONENTS
 import NavBar from "./Components/NavBar";
+import Home from './Components/Home';
 
 // MOBILE COMPONENTS
 import MobileNav from './mobile/Components/MobileNav';
@@ -27,7 +28,7 @@ function App() {
       <div className='Mobile'>
         <MobileNav/>
         <Routes>
-          <Route path="/" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/songs" element={<Index setGenreOption={setGenreOption} genreOption={genreOption}/>}/> 
           <Route path="/songs/:id" element={<Show />} />
           <Route path="*" element={<FourOFour />} />
@@ -40,7 +41,7 @@ function App() {
         <NavBar setGenreOption={setGenreOption}/>
         <main>
           <Routes>
-            <Route path="/" element={<Index genreOption={genreOption} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/songs" element={<Index genreOption={genreOption} />} />
             <Route path="/songs/:id" element={<Show />} />
             <Route path="*" element={<FourOFour />} />

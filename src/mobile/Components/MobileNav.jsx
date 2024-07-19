@@ -15,7 +15,12 @@ const MobileNav = () => {
                     <FaMicrophoneAlt className="logo"/>
                     <h1>Mixer</h1>
                 </Link>
-                <button onClick={() => setShowForm(true)} className='mobile-nav-button'>Add To Library</button>
+                <div className='mobile-nav-options'>
+                    <Link to='/songs'>
+                        <button className='mobile-nav-button'>Home</button>
+                    </Link>
+                    <button onClick={() => setShowForm(true)} className='mobile-nav-button'>Add To Library</button>
+                </div>
         </div>
     );
 };
