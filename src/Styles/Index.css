@@ -83,11 +83,7 @@
 
 .dashboard-table-row:hover {
 
-    .dashboard-table-name {
-        color: var(--light-red);
-    }
-
-    .dashboard-table-data, .dashboard-table-time {
+    .dashboard-table-data, .dashboard-table-time,  .dashboard-table-name {
         color: var(--light-red);
     }
 }
@@ -148,6 +144,12 @@
     white-space: nowrap;
 }
 
+.mobile-genre-box:hover {
+    .mobile-genre-label {
+        color: var(--white-text);
+    }
+}
+
 .mobile-genre-img {
     height: 100px;
     width: 100px;
@@ -159,7 +161,6 @@
     text-align: center;
     cursor: pointer;
 }
-
 
 
 .mobile-dashboard-table-row{

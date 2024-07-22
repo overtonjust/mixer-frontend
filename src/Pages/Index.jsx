@@ -52,13 +52,13 @@ export default function Index({genreOption, setGenreOption}){
         return(
             <main className="mobile-dashboard">
                 <div className="mobile-genre-list dragscroll">
-                        <figure onClick={() => setGenreOption("All Songs")}>
+                        <figure className="mobile-genre-box" onClick={() => setGenreOption("All Songs")}>
                             <img className="mobile-genre-img" src={genreImages["All Songs"]} alt={genreImages["All Songs"]} />
                             <figcaption className="mobile-genre-label">All Songs</figcaption>
                         </figure>
                     {mobileGenres.map((genre,index) => {
                         return(
-                            <figure onClick={() => setGenreOption(genre)} key={index}>
+                            <figure className="mobile-genre-box" onClick={() => setGenreOption(genre)} key={index}>
                                 <img src={genreImages[genre]} className="mobile-genre-img" alt={genreImages[genre]} ></img>
                                 <figcaption className="mobile-genre-label">{genre}</figcaption>
                             </figure>
