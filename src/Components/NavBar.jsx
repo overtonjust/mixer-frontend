@@ -7,8 +7,7 @@ import { FaMicrophoneAlt } from "react-icons/fa";
 import { TbGuitarPickFilled } from "react-icons/tb";
 import { PiMicrophoneStageFill } from "react-icons/pi";
 
-export default function NavBar({setGenreOption}){
-    const [showForm, setShowForm] = useState(false);
+export default function NavBar({setGenreOption, showForm, setShowForm}){
     const navigate = useNavigate();
 
     const handleGenreChange = (genre) => {

@@ -7,8 +7,9 @@ import "../Styles/Index.css";
 
 // Components
 import Loader from "../Components/Loader";
+import Form from "../Components/Form";
 
-export default function Index({genreOption, setGenreOption}){
+export default function Index({genreOption, setGenreOption, showForm, setShowForm}){
     const [songList, setSongList] = useState([]);
     const [favoritesList, setFavoritesList] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
@@ -106,6 +107,7 @@ export default function Index({genreOption, setGenreOption}){
         } else {
             return(
                 <main className="dashboard">
+                    {showForm ? <Form />:null}
                     <header className="dashboard-header">
                         <div className="dashboard-header-box">
                             <img className="dashboard-img" src={genreImages[genreOption]} alt="Genre image" />
@@ -119,7 +121,7 @@ export default function Index({genreOption, setGenreOption}){
                                 }
                             </div>
                         </div>
-                        <button className="dashboard-header-button">
+                        <button onClick={() => setShowForm(true)} className="dashboard-header-button">
                             <i className="fa-solid fa-ellipsis"></i>
                         </button>
                     </header>
