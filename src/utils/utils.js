@@ -15,6 +15,7 @@ const genreImages = {
     "Country": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F236352.jpg&f=1&nofb=1&ipt=ea5372853eaa4356adbc0bd1ecfb928b1c3a710a8dc8822e79152205c2460ad0&ipo=images"
 }
 
-export { convertSecondsToTimeStr, genreImages }
+
+export { convertSecondsToTimeStr, genreImages,}
 
 

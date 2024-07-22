@@ -1,0 +1,34 @@
+@keyframes bounce {
+    0% {transform: translateY(-5px);}
+    12.5% {transform: translateY(-2.5px);}
+    25% {transform: translateY(0);}
+    37.5% {transform: translateY(2.5px);}
+    50% {transform: translateY(5px);}
+    62.5% {transform: translateY(2.5px);}
+    75% {transform: translateY(0);}
+    87.5% {transform: translateY(-2.5px);}
+    100% {transform: translateY(-5px);}
+}
+
+
+.loader-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.loader-icon, .loader-text{
+    font-size: 1.8rem;
+    color: var(--grey-text);
+}
+
+
+.loader-bounce {
+    font-size: 1.8rem;
+    color: var(--grey-text);
+    animation-name: bounce;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
