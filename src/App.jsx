@@ -12,7 +12,6 @@ import FourOFour from "./Pages/FourOFour";
 // COMPONENTS
 import NavBar from "./Components/NavBar";
 import Home from './Components/Home';
-import Form from './Components/Form';
 
 // MOBILE COMPONENTS
 import MobileNav from './mobile/Components/MobileNav';
