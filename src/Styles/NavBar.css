@@ -34,6 +34,7 @@ nav{
             font-size: 16px;
             font-weight: normal;
             text-align: center;
+            transition: .1s ease-in;
         }
         .genres-container{
             display: flex;
@@ -42,6 +43,7 @@ nav{
             .genre{
                 cursor: pointer;
                 font-size: 14px;
+                transition: .2s ease-in;
                 i, .i{
                     stroke: var(--bold-red);
                     fill: var(--bold-red);
@@ -87,4 +89,13 @@ nav{
             }
         }
     }
+}
+
+.new-song-button:hover {
+    transform: translateY(-5px);
+}
+
+.genre:hover {
+    transform: translateY(-2px);
+    color: var(--bold-red);
 }
