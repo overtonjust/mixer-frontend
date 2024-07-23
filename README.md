@@ -1,6 +1,8 @@
 ![](./src/assets/microphone.png)
 # Mixer - Frontend
 
+**[Live DEMO](https://mixerkaraoke.netlify.app)**
+
 This karaoke app is 100% community driven, ensuring a personalized and up-to-date collection for everyone. With seamless YouTube integration, you can access an endless array of tracks and sing along to your favorites. Perfect for parties or solo sessions.
 
 ---
